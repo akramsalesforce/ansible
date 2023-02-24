@@ -5,4 +5,4 @@
   tasks:
     - name: Hello world example
       ansible.builtin.debug:
-        msg : URL = {{URL}}
+        msg: URL = {{URL}}
