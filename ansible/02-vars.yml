@@ -12,7 +12,7 @@
   - name: Play level variables from a file
     hosts: all
     vars_files:
-      - "01-sample.yml"
+      - sample.yml
     tasks:
       - name: Print URL
         ansible.builtin.debug:
