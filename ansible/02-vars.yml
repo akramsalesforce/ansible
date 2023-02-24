@@ -33,3 +33,10 @@
       - name: Print URL
         ansible.builtin.debug:
           msg: URL = {{URL}}
+
+  - name: fact varibles
+    hosts: all
+    tasks:
+      - name: Print URL
+        ansible.builtin.debug:
+          msg: ansible_machine_id = {{ansible_machine_id}}
