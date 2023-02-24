@@ -1,4 +1,4 @@
-- name: Smaple Play
+- name: Sample Play
   hosts: all
   tasks:
     - name: Print hello world
