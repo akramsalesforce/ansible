@@ -39,4 +39,6 @@
     tasks:
       - name: Print URL
         ansible.builtin.debug:
-          msg: IPV4 = {{ansible_lo.ipv4.address}}
+          msg: IPV4 = {{ansible_eth0.ipv4.address}}
+
+          #IP address = {{ansible_eth0.ipv4.address}}
