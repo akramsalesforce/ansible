@@ -33,5 +33,3 @@
       - name: Print URL
         ansible.builtin.debug:
           msg: URL = {{URL}}
-        vars:
-          URL: Task.varabiles.com
