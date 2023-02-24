@@ -1,8 +1,6 @@
-- name: playbook1 Devops
+- name: Smaple Play
   hosts: all
-  vars:
-    URL: play.example.com
   tasks:
-    - name: Hello world example
+    - name: Print hello world
       ansible.builtin.debug:
-        msg : URL = {{URL}}
+        msg: "Hello World"
