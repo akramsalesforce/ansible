@@ -1,6 +1,8 @@
-- name: test playbooks
+- name: playbooks Devops
   hosts: all
+  vars:
+      URL: play.example.com
   tasks:
     - name: Hello world example
       ansible.builtin.debug:
-        msg : hello world
+        msg : URL={{URL}}
