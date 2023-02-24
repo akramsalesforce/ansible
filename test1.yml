@@ -1,0 +1,18 @@
+- name: playbook1 Devops
+  hosts: all
+  vars:
+      URL: play.example.com
+  tasks:
+    - name: Hello world example
+      ansible.builtin.debug:
+        msg : URL={{URL}}
+
+
+- name: playbook2 Devops
+  hosts: all
+  vars_file:
+    - test.yml
+  tasks:
+    - name: Hello world example
+      ansible.builtin.debug:
+        msg : URL={{URL}}
