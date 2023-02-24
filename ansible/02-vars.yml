@@ -39,6 +39,6 @@
     tasks:
       - name: Print URL
         ansible.builtin.debug:
-          msg: Ansible_bios_date= {{ansible_bios_date,IPV4=ansible_eth0.ipv4.address}}
+          msg: Ansible_bios_date= {{ansible_bios_date}},IPV4={{ansible_eth0.ipv4.address}}
 
           #IP address = {{ansible_eth0.ipv4.address}}
