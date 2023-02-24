@@ -10,7 +10,7 @@
 
 - name: playbook2 Devops
   hosts: all
-  vars_file:
+  vars_files:
     - test.yml
   tasks:
     - name: Hello world example
