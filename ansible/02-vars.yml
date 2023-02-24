@@ -17,3 +17,12 @@
       - name: Print URL
         ansible.builtin.debug:
           msg: URL = {{URL}}
+
+  - name: Task level varibles
+    hosts: all
+    tasks:
+      - name: Print URL
+        ansible.builtin.debug:
+          msg: URL = {{URL}}
+        vars:
+          URL: Task.varabiles.com
