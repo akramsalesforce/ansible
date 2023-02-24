@@ -39,4 +39,4 @@
     tasks:
       - name: Print URL
         ansible.builtin.debug:
-          msg: ansible_machine_id = {{ansible_machine_id}}
+          msg: IPV4 = {{ipv4.address}}
