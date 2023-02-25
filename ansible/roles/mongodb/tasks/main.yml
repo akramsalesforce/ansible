@@ -26,11 +26,10 @@
     state: started
     enabled: yes
 
-- name: download mongodb sechma
-  ansible.builtin.unarchive:
-    src: https://github.com/roboshop-devops-project/mongodb/archive/main.zip
-    dest: /tmp
-    remote_src: yes
+- name: extract and load frontend
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: download
 
 - name: load catalogue sechma in mongodb
   community.mongodb.mongodb_shell:
