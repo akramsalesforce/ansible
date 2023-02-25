@@ -3,3 +3,8 @@
   hosts: Frontend
   roles:
     - frontend
+- name: RoboShop Mongo db Setup
+  become: yes
+  hosts: Mongodb
+  roles:
+    - mongodb
