@@ -34,10 +34,10 @@
 
 - name: load catalogue sechma in mongodb
   community.mongodb.mongodb_shell:
-    file: "/tmp/mongodb-main/catalogue.js"
+    file: "/tmp/mongodb-main/{{item}}.js"
     idempotent: yes
+  loop:
+   - catalogue
+   - users
 
-- name:  load user sechma in mongodb
-  community.mongodb.mongodb_shell:
-    file: "/tmp/mongodb-main/users.js"
-    idempotent: yes
+
