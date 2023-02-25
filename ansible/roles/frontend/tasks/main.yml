@@ -8,6 +8,7 @@
     name: nginx
     state: started
     enabled: yes
+    become: yes
 
 - name: download nginx files
   ansible.builtin.unarchive:
