@@ -3,11 +3,6 @@
     name: nginx
     state: installed
 
-- name: Start Nginx Service
-  service:
-    name: nginx
-    state: started
-    enabled: yes
 
 
 - name: download nginx files
@@ -31,6 +26,13 @@
   ansible.builtin.copy:
     src: roboshop.conf
     dest: /etc/nginx/default.d/roboshop.conf
+
+- name: Start Nginx Service
+  service:
+    name: nginx
+    state: restarted
+    enabled: yes
+
 
 
 
