@@ -3,6 +3,12 @@
     name: nginx
     state: installed
 
+- name: Start Nginx Service
+  ansible.builtin.systemd:
+    name: nginx
+    state: started
+    enabled: yes
+
 - name: download nginx files
   ansible.builtin.unarchive:
     src: https://github.com/roboshop-devops-project/frontend/archive/main.zip
@@ -26,11 +32,7 @@
     dest: /etc/nginx/default.d/roboshop.conf
 
 
-- name: Start Nginx Service
-  ansible.builtin.systemd:
-    name: nginx
-    state: restarted
-    enabled: yes
+
 
 
 
