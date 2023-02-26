@@ -2,5 +2,5 @@
 frontend.roboshop.intarnet
 [Mongodb]
 172.31.11.3
-[CATALOGUE]
+[catalogue]
 catalogue.roboshop.intarnet
