@@ -1,8 +1,7 @@
 - name: Setup YUM repos for NodeJS
   ansible.builtin.shell: curl -sL https://rpm.nodesource.com/setup_lts.x | bash
 
-- hosts: all
-  gather_facts: yes
+- name: Installing nodejs
   become: yes
   vars:
     NODEJS_VERSION: "8"
