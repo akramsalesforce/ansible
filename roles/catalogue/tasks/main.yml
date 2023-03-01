@@ -1,7 +1,34 @@
-- name: Include Nodejs steps from common role
+- name: configure NodeJS repos
+  ansible.builtin.shell: curl -FssL https://rpm.nodesource.com/setup_lts.x | bash -
+
+- name: Install NodeJS
+  ansible.builtin.yum:
+    name:
+      - nodejs
+      - gcc-c++
+    state: installed
+
+- name: Add RooShop App USer
+  ansible.builtin.user:
+    name: roboshop
+    comment: RoboShop Application User
+
+- name: download and extract
   ansible.builtin.include_role:
     name: common
-    tasks_from: nodejs
+    tasks_from: download
+
+- name: cleanup the content
+  ansible.builtin.file:
+    path: /home/roboshop/catalogue
+    state: absent
+
+- name: copy app content
+  ansible.builtin.copy:
+    src: /tmp/catalogue-main/
+    dest: /home/roboshop/catalogue/
+    remote_src: yes
+
 
 
 
