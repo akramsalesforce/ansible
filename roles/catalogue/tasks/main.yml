@@ -1,22 +1,24 @@
-- name: configure NodeJS repos
-  ansible.builtin.shell: curl -FssL https://rpm.nodesource.com/setup_lts.x | bash -
+---
+- name: Add node.js repo
+  yum_repository:
+    name: nodejs
+    description: Node JS
+    baseurl: https://rpm.nodesource.com/pub_8.x/el/7/x86_64/
+    enabled: 1
+    gpgcheck: 1
+    gpgkey: https://rpm.nodesource.com/pub/el/NODESOURCE-GPG-SIGNING-KEY-EL
 
-- name: Install NodeJS
-  ansible.builtin.yum:
+- name: Install package
+  yum:
     name:
-      - nodejs
-      - gcc-c++
-    state: installed
+      - https://rpm.nodesource.com/pub_8.x/el/7/x86_64/nodesource-release-el7-1.noarch.rpm
+    state: present
 
-- name: Add RooShop App USer
-  ansible.builtin.user:
-    name: roboshop
-    comment: RoboShop Application User
-
-- name: download and extract
-  ansible.builtin.include_role:
-    name: common
-    tasks_from: download
+- name: Install nodejs
+  yum:
+    name: nodejs-8.*
+    state: present
+    enablerepo: 'nodesource'
 
 - name: cleanup the content
   ansible.builtin.file:
@@ -28,6 +30,7 @@
     src: /tmp/catalogue-main/
     dest: /home/roboshop/catalogue/
     remote_src: yes
+  become_user: roboshop
 
 
 
