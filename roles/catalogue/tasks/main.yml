@@ -6,6 +6,11 @@
     name: nodejs
     state: installed
 
+- name: Install gcc
+  ansible.builtin.yum:
+    name: gcc-c++
+    state: installed
+
 
 
 
