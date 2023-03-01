@@ -1,9 +1,13 @@
--  name: Installing node JS
-   tasks:
-    - Name: install Nodejs
-      yum:
-        name: nodejs
-        state: present
+-  name: install nginx
+   ansible.builtin.shell: curl -sL https://rpm.nodesource.com/setup_lts.x | bash
+
+- name: Installing node JS
+  ansible.builtin.yum:
+    Name: install Nodejs
+      - nodejs
+      - gcc-c++
+    state: installed
+
 
 
 
