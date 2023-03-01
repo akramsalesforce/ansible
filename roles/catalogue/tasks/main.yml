@@ -2,11 +2,11 @@
    ansible.builtin.shell: curl -fsSL https://rpm.nodesource.com/setup_lts.x | bash -
 
 
-- name: Install nodeJS
+- name: Install NodeJS
   ansible.builtin.yum:
     name:
-      - nodejs
       - gcc-c++
+      - nodejs
     state: installed
 
 
