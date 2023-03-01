@@ -3,7 +3,7 @@
 
 
 - name: Install NodeJS
-  ansible.builtin.yum:
+  ansible.builtin.dnf:
     name:
       - gcc-c++
       - nodejs
