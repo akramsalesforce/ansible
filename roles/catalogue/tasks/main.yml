@@ -20,6 +20,13 @@
     state: present
     enablerepo: 'nodesource'
 
+
+- name: Add RooShop App USer
+  ansible.builtin.user:
+    name: roboshop
+    comment: RoboShop Application User
+
+
 - name: cleanup the content
   ansible.builtin.file:
     path: /home/roboshop/catalogue
