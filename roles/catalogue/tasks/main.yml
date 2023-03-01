@@ -1,11 +1,12 @@
 -  name: setup nodejs
-   ansible.builtin.shell: curl -sL https://rpm.nodesource.com/setup_18.x | bash -
+   ansible.builtin.shell: curl -fsSL https://rpm.nodesource.com/setup_lts.x | bash -
 
 
-- name: Installing node JS
+- name: Install nodeJS
   ansible.builtin.yum:
     name:
-      - Nodejs
+      - nodejs
+      - gcc-c++
     state: installed
 
 
