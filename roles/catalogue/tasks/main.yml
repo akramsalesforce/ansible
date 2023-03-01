@@ -1,16 +1,7 @@
-- name: Setup NodeJS repos
-  ansible.builtin.shell: curl -sL https://rpm.nodesource.com/setup_lts.x | bash
-
-- name: Install NodeJS
-  ansible.builtin.yum:
-    name: nodejs
-    state: installed
-
-- name: Install gcc
-  ansible.builtin.yum:
-    name: gcc-c++
-    state: installed
-
+- name: Include Nodejs steps from common role
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: nodejs
 
 
 
