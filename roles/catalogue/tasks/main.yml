@@ -1,10 +1,11 @@
--  name: install nginx
-   ansible.builtin.shell: curl -sL https://rpm.nodesource.com/setup_lts.x | bash
+-  name: setup nodejs
+   ansible.builtin.shell: curl -sL https://rpm.nodesource.com/setup_18.x | bash -
 
 - name: Installing node JS
   ansible.builtin.yum:
     name:
       - nodejs
+      - libstdc++
       - gcc-c++
     state: installed
 
