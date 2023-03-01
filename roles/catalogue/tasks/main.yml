@@ -7,7 +7,7 @@
     name:
        - nodejs
        - gcc-c++
-    state: install
+    state: latest
 
 
 
