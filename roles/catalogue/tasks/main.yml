@@ -1,5 +1,5 @@
 - name: setup nodejs
-  ansible.builtin.shell: curl -fsSL https://rpm.nodesource.com/setup_lts.x | bash -
+  ansible.builtin.shell: curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash -
 
 
 - name: Install NodeJS
@@ -7,7 +7,7 @@
     name:
        - nodejs
        - gcc-c++
-    state: latest
+    state: installed
 
 
 
