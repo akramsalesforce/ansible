@@ -1,6 +1,6 @@
-[Frontend]
+[frontend]
 frontend.roboshop.intarnet
-[Mongodb]
+[mongodb]
 mongodb.roboshop.intarnet
 [catalogue]
 catalogue.roboshop.intarnet
