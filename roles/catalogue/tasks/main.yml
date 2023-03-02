@@ -9,7 +9,7 @@
       - gcc-c++
     state: installed
 
-- name: Add RooShop App USer
+- name: Add RobShop App USer
   ansible.builtin.user:
     name: roboshop
     comment: RoboShop Application User
@@ -49,6 +49,17 @@
   community.general.npm:
     path: /home/roboshop/catalogue
 
+- name: copy systemd file
+  ansible.builtin.copy:
+    src: system.service
+    dest: /etc/systemd/system/catalogue.service
+
+- name: start catalogue service
+  ansible.builtin.systemd:
+    name: catalogue
+    state: started
+    enabled: yes
+    daemon-reload: yes
 
 
 
