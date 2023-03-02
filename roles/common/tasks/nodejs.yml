@@ -8,37 +8,37 @@
      - gcc-c++
     state: installed
 
-- name: Add RobShop App user
-  ansible.builtin.user:
+- name: Add RobShop App {{COMPONENT}}
+  ansible.builtin.{{COMPONENT}}:
     name: roboshop
-    comment: RoboShop Application User
+    comment: RoboShop Application {{COMPONENT}}
 
 - name: cleanup the content
   ansible.builtin.file:
-    path: /home/roboshop/user
+    path: /home/roboshop/{{COMPONENT}}
     state: absent
 
 - name: copy app content
   ansible.builtin.copy:
-    src: /tmp/user-main/
-    dest: /home/roboshop/user/
+    src: /tmp/{{COMPONENT}}-main/
+    dest: /home/roboshop/{{COMPONENT}}/
     remote_src: yes
-  become_user: roboshop
+  become_{{COMPONENT}}: roboshop
 
 - name: install NodeJs Dependencies
-  become_user: roboshop
+  become_{{COMPONENT}}: roboshop
   community.general.npm:
-    path: /home/roboshop/user
+    path: /home/roboshop/{{COMPONENT}}
 
 
 - name: copy systemd file
   ansible.builtin.copy:
     src: systemd.service
-    dest: /etc/systemd/system/user.service
+    dest: /etc/systemd/system/{{COMPONENT}}.service
 
-- name: start user service
+- name: start {{COMPONENT}} service
   ansible.builtin.systemd:
-    name: user
+    name: {{COMPONENT}}
     state: restarted
     enabled: yes
     daemon-reload: yes
