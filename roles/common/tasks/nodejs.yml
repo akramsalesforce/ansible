@@ -1,12 +1,13 @@
 - name: configure yum repo
   ansible.builtin.shell: curl -fsSL https://rpm.nodesource.com/setup_lts.x | bash -
 
-- name: Install nodejs
-  ansible.builtin.yum:
-    name:
-      - nodejs
-      - gcc-c++
-    state: installed
+
+- name: Install devtoolset-9
+  shell:  yum install nodejs -y
+  become: yes
+
+
+
 
 - name: Add RobShop App {{COMPONENT}}
   ansible.builtin.user:
