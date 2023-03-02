@@ -14,11 +14,6 @@
     name: roboshop
     comment: RoboShop Application User
 
-- name: cleanup the content
-  ansible.builtin.file:
-    path: /home/roboshop/{{COMPONENT}}
-    state: absent
-
 - name: download and extract
   include_role:
     name: common
@@ -29,6 +24,13 @@
     path: /home/roboshop/{{COMPONENT}}
     state: directory
   become_user: roboshop
+
+
+- name: cleanup the content
+  ansible.builtin.file:
+    path: /home/roboshop/{{COMPONENT}}
+    state: absent
+
 
 - name: copy app content
   ansible.builtin.copy:
