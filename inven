@@ -1,6 +1,6 @@
 [Frontend]
 frontend.roboshop.intarnet
 [Mongodb]
-172.31.11.3
+mongodb.roboshop.intarnet
 [catalogue]
 catalogue.roboshop.intarnet
