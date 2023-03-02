@@ -9,7 +9,7 @@
     state: installed
 
 - name: Add RobShop App {{COMPONENT}}
-  ansible.builtin.{{COMPONENT}}:
+  ansible.builtin.user:
     name: roboshop
     comment: RoboShop Application {{COMPONENT}}
 
@@ -23,10 +23,10 @@
     src: /tmp/{{COMPONENT}}-main/
     dest: /home/roboshop/{{COMPONENT}}/
     remote_src: yes
-  become_{{COMPONENT}}: roboshop
+  become_user: roboshop
 
 - name: install NodeJs Dependencies
-  become_{{COMPONENT}}: roboshop
+  become_user: roboshop
   community.general.npm:
     path: /home/roboshop/{{COMPONENT}}
 
