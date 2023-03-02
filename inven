@@ -6,3 +6,5 @@ mongodb.roboshop.intarnet
 catalogue.roboshop.intarnet
 [redis]
 redis.roboshop.intarnet
+[user]
+user.roboshop.intarnet
