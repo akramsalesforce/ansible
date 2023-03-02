@@ -25,6 +25,13 @@
     state: directory
   become_user: roboshop
 
+
+- name: Add RooShop App USer
+  ansible.builtin.user:
+    name: roboshop
+    comment: RoboShop Application User
+
+
 - name: cleanup the content
   ansible.builtin.file:
     path: /home/roboshop/catalogue
