@@ -5,11 +5,7 @@
 
   become: yes
 
-  tasks:
-
-   name: Install base applications
-
-   yum:
+  yum:
 
      name: "{{ item }}"
 
