@@ -1,17 +1,18 @@
 - name: Configure YUM repos.
   ansible.builtin.shell: curl -sL https://rpm.nodesource.com/setup_16.x | bash  -
 
+- name: install node js
+  ansible.builtin.yum:
+    name:
+      - nodejs
+    state: installed
+
 - name: install gcc
   ansible.builtin.yum:
     name:
       - gcc-c++
     state: installed
 
-- name: install node js
-  ansible.builtin.yum:
-    name:
-      - nodejs
-    state: installed
 - name: Add roboshop App {{COMPONENT}}
   ansible.builtin.user:
     name: roboshop
