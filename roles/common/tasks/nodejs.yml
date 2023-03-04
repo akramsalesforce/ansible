@@ -1,13 +1,32 @@
 - name: Configure YUM repos.
   ansible.builtin.shell: curl -sL https://rpm.nodesource.com/setup_lts.x | bash
 
-- name: install nodejs
-  yum:
-    name:
-     - nodejs
-     - gcc-c++
-     - make
-    state: installed
+- name: Test yum module installs.
+
+  become: yes
+
+  tasks:
+
+   - name: Install base applications
+
+     yum:
+
+      name: "{{ item }}"
+
+      state: installed
+
+      with_items:
+
+        - epel-release
+
+        - nodejs
+
+        - gcc
+
+        - wget
+
+
+
 
 - name: Add roboshop App {{COMPONENT}}
   ansible.builtin.user:
