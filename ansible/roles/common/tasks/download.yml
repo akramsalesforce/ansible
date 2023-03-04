@@ -1,4 +1,4 @@
-- name: download and extract {{COMPONENT}}files
+- name: download and extract {{COMPONENT}} files
   ansible.builtin.unarchive:
     src: https://github.com/roboshop-devops-project/{{COMPONENT}}/archive/main.zip
     dest: /tmp
