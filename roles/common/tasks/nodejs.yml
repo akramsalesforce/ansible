@@ -4,8 +4,9 @@
 - name: Install NodeJS
   ansible.builtin.yum:
   tasks:
-    name: Installing Common Packages
-    action: yum name=nodejs,gcc-c++ state=installed
+   -  name: Installing Common Packages
+      action: yum name=nodejs,gcc-c++
+      state: installed
 
 - name: Add roboshop App {{COMPONENT}}
   ansible.builtin.user:
