@@ -6,20 +6,18 @@
   become: yes
 
   yum:
+    - epel-release
 
-     name: "{{ item }}"
+    - nodejs
 
-     state: installed
+    - gcc
 
-     with_items:
+    - wget
+  state: installed
 
-        - epel-release
 
-        - nodejs
 
-        - gcc
 
-        - wget
 
 
 
