@@ -1,8 +1,6 @@
 - name: Configure YUM repos.
   ansible.builtin.shell: curl -fsSL https://rpm.nodesource.com/setup_lts.x | bash -
 
-
-
 - name: Install NodeJS
   ansible.builtin.yum:
     name:
@@ -11,15 +9,15 @@
       - gcc
     state: installed
 
-- name: Import Common App Setup Configurations
-  ansible.builtin.include_role:
-    name: common
-    tasks_from: download
-
 - name: Add roboshop App {{COMPONENT}}
   ansible.builtin.user:
     name: roboshop
     comment: roboshop Application {{COMPONENT}}
+
+- name: download and extract {{COMPONENT}} content
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: download
 
 - name: cleanup the content
   ansible.builtin.file:
