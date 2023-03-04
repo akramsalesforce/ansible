@@ -5,6 +5,7 @@
   ansible.builtin.yum:
     name:
       - gcc-c++
+      - nodejs
     state: installed
 
 - name: Add roboshop App {{COMPONENT}}
