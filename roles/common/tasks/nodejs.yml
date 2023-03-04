@@ -7,15 +7,15 @@
 
   tasks:
 
-   - name: Install base applications
+   name: Install base applications
 
-     yum:
+   yum:
 
-      name: "{{ item }}"
+     name: "{{ item }}"
 
-      state: installed
+     state: installed
 
-      with_items:
+     with_items:
 
         - epel-release
 
