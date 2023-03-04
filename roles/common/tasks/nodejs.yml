@@ -8,7 +8,7 @@
     name:
       - nodejs
       - gcc
-      -  gcc-c++
+      - gcc-c++
     state: installed
 
 - name: Setup App USer, Download and Extract {{COMPONENT}} Content
