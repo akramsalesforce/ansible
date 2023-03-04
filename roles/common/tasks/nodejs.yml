@@ -4,8 +4,8 @@
 - name: install nodejs
   ansible.builtin.yum:
     name:
-      - nodejs
-      - gcc-c++
+    - nodejs
+    - gcc-c++
     state: installed
 
 - name: Add roboshop App {{COMPONENT}}
