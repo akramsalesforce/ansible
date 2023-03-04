@@ -11,6 +11,11 @@
       - gcc
     state: installed
 
+- name: Import Common App Setup Configurations
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: download
+
 - name: Add roboshop App {{COMPONENT}}
   ansible.builtin.user:
     name: roboshop
