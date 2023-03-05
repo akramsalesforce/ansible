@@ -8,3 +8,5 @@ catalogue.roboshop.intarnet
 redis.roboshop.intarnet
 [user]
 user.roboshop.intarnet
+[mysql]
+mysql.roboshop.intarnet
