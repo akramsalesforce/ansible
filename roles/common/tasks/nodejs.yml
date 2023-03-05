@@ -37,7 +37,12 @@
 - name: Install NodeJS Dependencies
   become_user: roboshop
   community.general.npm:
+    name: NodeJS
+    global: true
+  environment:
     path: /home/roboshop/{{COMPONENT}}
+
+
 
  # skip_broken: yes
 
