@@ -34,10 +34,10 @@
     remote_src: yes
   become_user: roboshop
 
-- name: install NodeJs Dependencies
-  become_user: roboshop
+- name: Install NodeJS Dependencies
   community.general.npm:
     path: /home/roboshop/{{COMPONENT}}
+  become_user: roboshop
 
 
 - name: copy systemd file
