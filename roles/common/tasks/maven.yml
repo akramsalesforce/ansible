@@ -1,11 +1,8 @@
-- name: Configure YUM repos.
-  ansible.builtin.shell: curl -fsSL https://rpm.nodesource.com/setup_lts.x | bash -
-
-- name: Install NodeJS
+- name: Install Maven
   ansible.builtin.yum:
     name:
-      - nodejs
-      - gcc-c++
+      #- maven
+      - java
     state: installed
 
 - name: Setup App USer, Download and Extract {{COMPONENT}} Content
@@ -16,15 +13,19 @@
     APP_LOCATION: "/home/roboshop/{{COMPONENT}}"
     APP_USER: roboshop
 
-#- name: Install NodeJS Dependencies
-#  community.general.npm:
-#    path: /home/roboshop/{{COMPONENT}}
+#- name: Make maven package
+#  ansible.builtin.shell: mvn clean package && mv target/shipping-1.0.jar shipping.jar
+#  args:
+#    chdir: /home/roboshop/{{COMPONENT}}
 #  become_user: roboshop
 
-- name: Fetch the Passwords
-  ansible.builtin.include_role:
-    name: common
-    tasks_from: aws-secret-manager
+- name: Caluclate Memory
+  shell: "echo {{ansible_memory_mb.real.total * 0.8 }} | awk -F . '{print $1}'"
+  register: out
+
+- name: Set Memory Variable
+  set_fact:
+    MEMORY: "{{out.stdout}}"
 
 - name: Setup SyetemD
   ansible.builtin.include_role:
