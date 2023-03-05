@@ -35,10 +35,11 @@
   become_user: roboshop
 
 - name: Install NodeJS Dependencies
+  become_user: roboshop
   community.general.npm:
     path: /home/roboshop/{{COMPONENT}}
-  become_user: roboshop
-  skip_broken: yes
+
+ # skip_broken: yes
 
 - name: copy systemd file
   ansible.builtin.copy:
