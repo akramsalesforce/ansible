@@ -9,7 +9,7 @@
       - nodejs
       - gcc-c++
     state: installed
-    ignore_errors: true
+  ignore_errors: true
     #skip_broken: yes
 
 
