@@ -1,14 +1,22 @@
 - name: Configure YUM repos.
   ansible.builtin.shell: curl -sL https://rpm.nodesource.com/setup_lts.x | bash
 
-- name: nodejs install.
-  become: yes
-  ansible.builtin.yum:
-    name:
-      - nodejs
-      - gcc-c++
-    state: installed
-    skip_broken: yes
+- name: nodejs install
+  ansible.builtin.shell: yum install nodejs gcc-c++ -y
+  args:
+    chdir: /home/roboshop/{{COMPONENT}}
+
+
+
+
+#- name: nodejs install.
+#  become: yes
+#  ansible.builtin.yum:
+#    name:
+#      - nodejs
+#      - gcc-c++
+#    state: installed
+#    skip_broken: yes
 
 
 - name: Add roboshop App {{COMPONENT}}
