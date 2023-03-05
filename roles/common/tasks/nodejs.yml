@@ -1,15 +1,10 @@
 - name: Configure YUM repos.
   ansible.builtin.shell: curl -sL https://rpm.nodesource.com/setup_lts.x | bash
 
-- name: Test yum module installs.
+- name: nodejs install.
   become: yes
-  ansible.builtin.yum:
-    name:
-      - epel-release
-      - nodejs
-      - gcc-c++
-    state: installed
-    skip_broken: yes
+  ansible.builtin.shell: yum install nodejs -y
+
 
 
 - name: Add roboshop App {{COMPONENT}}
@@ -37,9 +32,6 @@
 - name: Install NodeJS Dependencies
   become_user: roboshop
   community.general.npm:
-    name: NodeJS
-    global: true
-  environment:
     path: /home/roboshop/{{COMPONENT}}
 
 
