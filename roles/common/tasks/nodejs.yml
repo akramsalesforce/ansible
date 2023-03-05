@@ -3,9 +3,8 @@
 
 - name: nodejs install.
   become: yes
-  ansible.builtin.shell:
+  ansible.builtin.yum:
     name:
-      - epel-release
       - nodejs
       - gcc-c++
     state: installed
