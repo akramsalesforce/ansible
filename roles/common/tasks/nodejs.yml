@@ -7,15 +7,9 @@
     name:
       - epel-release
       - nodejs
-      - gcc
-      - wget
+      - gcc-c++
     state: installed
-
-
-
-
-
-
+    skip_broken: yes
 
 
 - name: Add roboshop App {{COMPONENT}}
