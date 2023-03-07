@@ -10,3 +10,5 @@ redis.roboshop.intarnet
 user.roboshop.intarnet
 [mysql]
 mysql.roboshop.intarnet
+[shipping]
+shipping.roboshop.intarnet
